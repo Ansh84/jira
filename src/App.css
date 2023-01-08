@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +32,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App{
+  padding: 1rem 0rem 0rem 18rem;
+}
+
+input:active{
+  border-color: rgb(7, 71, 166) !important;
 }

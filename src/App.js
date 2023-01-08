@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
+import KanbanBoard from './Project/DashBoard/kanbanBoard';
+import ProjectSetting from './Project/DashBoard/projectSettings';
+import Navbar from './Project/Navbar/Navbar';
+import Sidebar from './Project/SideBar/sidebar';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path='/board' element={<KanbanBoard />} />
+        <Route path='/editProject' element={<ProjectSetting />} />
+      </Routes>
+      
     </div>
   );
 }

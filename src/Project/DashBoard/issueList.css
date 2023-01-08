@@ -1,0 +1,29 @@
+.dnd-box{
+    width: 50%;
+    background-color: rgb(239, 242, 246);;
+    min-height: 50vh;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+hr{
+    color: gray;
+}
+.issue-list{
+    display: flex;
+}
+.card{
+    background: white;
+    padding: 1rem;
+    border-radius: 5%;
+    margin-bottom: 0.5rem;
+}
+.description{
+    display: flex;
+}
+.status{
+    width: 50%;
+}
+.users-icons, img{
+    margin-right: -0.5rem;
+}

@@ -1,0 +1,31 @@
+.nav-bar{
+    position: fixed;
+    z-index: 99;
+    top: 0px;
+    left: 0rem;
+    height: 100vh;
+    width: 14rem;
+    padding: 0px 1rem 2rem;
+    background: rgb(244, 245, 247);
+    border-right: 1px solid rgb(223, 225, 230);
+    overflow: hidden auto;
+    padding: 2rem;
+    line-height: 3rem;
+}
+.activedLink{
+    background: rgb(25 26 27 / 8%);
+    padding: 0.6rem 0.4rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    color: rgb(7, 71, 166);
+}
+.navLink{
+    text-decoration: none;
+    color: black;
+}
+.not-implemented:hover{
+    cursor: not-allowed;
+    background: rgb(25 26 27 / 35%);
+    padding: 0.6rem 0.4rem;
+    border-radius: 0.2rem;
+}

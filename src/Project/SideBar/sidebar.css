@@ -1,0 +1,46 @@
+.side-bar{
+    background-color: rgb(7, 71, 166);
+    color: white;
+    height: 98vh;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 100;
+    width: 2rem;
+    transition: all 0.1s ease 0s;
+    transform: translateZ(0px);
+    overflow: hidden;
+    position: fixed;
+    left: 0rem;
+    top: 0rem;
+}
+.side-bar:hover{
+    width: 10rem;
+    align-items: flex-start;
+}
+
+.question{
+    margin-top: auto;
+    width: 100%;
+    max-height: 2rem;
+    overflow: hidden;
+}
+
+svg{
+    margin-right: 0.5rem;
+}
+
+label{
+    margin-bottom: 0.5rem;
+}
+
+.container{
+    width: 100%;
+    max-height: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.container:first-child{
+    margin-top: 5rem;
+}

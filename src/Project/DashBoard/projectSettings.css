@@ -1,0 +1,12 @@
+.project-settings{
+    padding: 5rem 8rem 1rem;
+}
+
+.project-settings textarea{
+    resize: none !important;
+    height: 70% !important;
+}
+
+.project-settings button{
+    margin-top: 2rem;
+}

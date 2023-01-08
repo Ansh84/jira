@@ -1,0 +1,35 @@
+.body{
+    display: flex;
+}
+.body-description{
+    width: 75%;
+}
+.modal-content{
+    width: 80% !important;
+    align-self:center;
+}
+.modal-body{
+    padding: 0% 15% 5% 2% !important;
+}
+.modal-footer .close-button{
+    color: black;
+}
+.body-description textarea{
+    border: none;
+    font-size: 1.2rem;
+    height: 30%;
+    resize: none;
+    width: 100%;
+    font-weight:500;
+    margin-bottom: 0.5rem;
+}
+.body-right-content{
+    padding-left: 1rem;
+    width: 25%;
+}
+.body-right-content label{
+    margin: 0.5rem 0rem 0.2rem 0.5rem;
+}
+.quill{
+    height: 70%;
+}
