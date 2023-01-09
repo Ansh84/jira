@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { issueData, users } from '../data/issueData'
+import { useState } from 'react'
+import { users } from '../data/issueData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faBook, faExclamationCircle, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons'
 import './issueList.css'
@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { sortDragData } from '../Store/kanbanSlice'
 import ModalComponent from '../../Components/modal'
-import axios from 'axios'
 
 const IssueStatusCopy = {
     BACKLOG: 'Backlog',
@@ -23,7 +22,6 @@ function IssueList(){
     const dispatch = useDispatch()
 
     const listOfIssues = useSelector((state) => {
-        console.log(state.kanban);
         return state.kanban.data.filter((issue) => issue.title.toLowerCase().includes(state.kanban.searchTerm.toLowerCase()))
     })
     

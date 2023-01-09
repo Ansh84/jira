@@ -18,7 +18,7 @@ const Initial_State = {
     description: '',
     title: '',
     status: 'Backlog',
-    id: 15464587
+    id: Math.floor(Math.random()*1000)
 }
 
 
@@ -78,7 +78,7 @@ const NewIssueModal = (props) => {
                 </Form.Group>
                 <Form.Group className="m-3" controlId="title">
                     <Form.Label>Short Summary</Form.Label>
-                    <Form.Control type="text" placeholder="" required   onChange = {(event) => setDropdownValues({...DropdownValues, reporter: event.label})}/>
+                    <Form.Control type="text" placeholder="" required   onChange = {(event) => setDropdownValues({...DropdownValues, title: event.target?.value})}/>
                     <Form.Text className="text-muted">
                         Concisely summarize the issue in one or two sentences.
                     </Form.Text>

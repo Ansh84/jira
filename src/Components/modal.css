@@ -33,3 +33,7 @@
 .quill{
     height: 70%;
 }
+.breadcrumb-item a{
+    text-decoration: none;
+    color: gray;
+}

@@ -6,6 +6,7 @@ import IssueList from "./issueList"
 import { Button, ButtonGroup } from "react-bootstrap"
 import './kanban.css'
 import NewIssueModal from "../../Components/newIssueModal"
+import BreadcrumbComponent from "../../Components/breakcrumb"
 
 function KanbanBoard() {
     
@@ -31,7 +32,7 @@ function KanbanBoard() {
         <div className="kanbanBoard">
             <div className="kanban-filters">
                 <div className="breadcrumb">
-                    Hello from Kanban Board
+                    <BreadcrumbComponent page="Kanban Board" />
                 </div>
                 <h1> Kanban Board</h1>
                 <div className="issue-filter">

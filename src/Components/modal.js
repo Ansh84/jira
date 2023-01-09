@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -16,21 +16,31 @@ import './modal.css'
 const ModalComponent = (props) => {
 
     const overlay = document.getElementById('overlays')
+    const [modalData, setIssueData] = useState(props.issueData)
+
+    useEffect(() => {
+        setIssueData(props.issueData);
+     }, [props])
+
+
 
     const dispatch = useDispatch()
 
-    const issueType = props.issueData?.type
-    const issueStatus = props.issueData?.status
+
+    const issueType = modalData?.type
+    const issueStatus = modalData?.status
 
     const changeValue = ($event, type) => {
-        console.log($event.target?.value);
         if(type === 'title'){
-            dispatch(updateIssueData({id: props.issueData?.id, value: $event.target?.value, type: type}))
+            dispatch(updateIssueData({id: modalData?.id, value: $event.target?.value, type: type}))
+            setIssueData({...modalData, title: $event.target?.value})
+            
         }else if($event.target?.innerText !== undefined){
-            dispatch(updateIssueData({id: props.issueData?.id, value: $event.target?.innerText, type: type}))
+            dispatch(updateIssueData({id: modalData?.id, value: $event.target?.innerText, type: type}))
         }
         if(type === 'description'){
-            dispatch(updateIssueData({id: props.issueData?.id, value: $event, type: type}))
+            dispatch(updateIssueData({id: modalData?.id, value: $event, type: type}))
+            setIssueData({...modalData, description: $event})
         }
     }
     
@@ -41,7 +51,7 @@ const ModalComponent = (props) => {
                 <div className='issue-type'>
                 <Dropdown onClick={($event) => changeValue($event, 'type')}>
                     <Dropdown.Toggle variant={issueType === 'TASK' ? 'outline-primary' : (issueType === 'STORY' ? 'outline-success' : 'outline-danger')} id="dropdown-basic">
-                        {issueType?.toUpperCase()}-{props.issueData?.id}
+                        {issueType?.toUpperCase()}-{modalData?.id}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
@@ -59,10 +69,10 @@ const ModalComponent = (props) => {
             <Modal.Body>
                 <div className='body'>
                     <div className="body-description">
-                        <textarea type="text" placeholder='Short Summary' onBlur={($event) => changeValue($event, 'title')}>{props.issueData?.title}</textarea>
+                        <textarea type="text" placeholder='Short Summary' onBlur={($event) => changeValue($event, 'title')}>{modalData?.title}</textarea>
                         <label>Description</label>
                         <div className='quill'>
-                            <ReactQuill theme="snow" value={props.issueData?.description} onChange={($event) => changeValue($event, 'description')}/>
+                            <ReactQuill theme="snow" defaultValue={modalData?.description} onChange={($event) => changeValue($event, 'description')}/>
                         </div>
                     </div>
                     <div className="body-right-content">
@@ -92,7 +102,7 @@ const ModalComponent = (props) => {
                             )}
                         </DropdownButton>
                         <label>PRIORITY</label>
-                        <DropdownButton variant={props.issueData?.priority > 2 ? 'outline-danger' : 'outline-success'} title="Lowest" onClick={($event) => changeValue($event, 'priority')}>
+                        <DropdownButton variant={modalData?.priority > 2 ? 'outline-danger' : 'outline-success'} title={modalData?.priority> 2 ? 'High' : 'Low'} onClick={($event) => changeValue($event, 'priority')}>
                             <Dropdown.Item><FontAwesomeIcon icon={faUpLong} color='red'/>Highest</Dropdown.Item>
                             <Dropdown.Item><FontAwesomeIcon icon={faUpLong} color='red'/>High</Dropdown.Item>
                             <Dropdown.Item><FontAwesomeIcon icon={faUpLong} color='orange'/>Medium</Dropdown.Item>

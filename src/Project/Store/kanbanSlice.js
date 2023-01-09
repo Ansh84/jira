@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { issueData } from "../data/issueData"
+import { issueData, project } from "../data/issueData"
 
 
 const initialState = {
     searchTerm: '',
-    data: issueData
+    data: issueData,
+    projectData: project
 }
 
 export const kanbanSlice = createSlice({
@@ -29,6 +30,10 @@ export const kanbanSlice = createSlice({
                 return data
             })
         },
+        updateProjectName: (state, action) => {
+            console.log(action.payload.name)
+            state.projectData.name = action.payload
+        },
         changeSearchTerm:(state, action) => {
             state.searchTerm = action.payload
         },
@@ -41,5 +46,5 @@ export const kanbanSlice = createSlice({
 console.log(kanbanSlice);
 
 
-export const {sortDragData, changeSearchTerm, updateIssueData, addNewIssue} = kanbanSlice.actions
+export const {sortDragData, changeSearchTerm, updateIssueData, addNewIssue, updateProjectName} = kanbanSlice.actions
 export default kanbanSlice
